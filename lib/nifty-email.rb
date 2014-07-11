@@ -10,9 +10,7 @@ class NiftyEmail
   end
 
   def self.get_email(slug_or_id, placeholders)
-    # env variable for url
-    # connection = Faraday.new(url: 'http://nifty-email.herokuapp.com/api')
-    connection = Faraday.new(url: 'http://localhost:5000/api/emails')
+    connection = Faraday.new(url: 'http://nifty-email-production.herokuapp.com/api/emails')
     connection.authorization('Token', token: @token)
 
     response = connection.get("#{slug_or_id}.json", placeholders)
