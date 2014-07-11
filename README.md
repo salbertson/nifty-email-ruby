@@ -18,12 +18,31 @@ Or install it yourself as:
 
 ## Usage
 
+### General example
+
 ```
 NiftyEmail.token = '123abc'
 
 email = NiftyEmail.get_email('awesome-email', full_name: 'Jim Tom')
 puts email.html
 puts email.text
+```
+
+### Rails example
+
+```
+# initializer
+
+NiftyEmail.token = '123abc'
+
+# mailer
+
+email = NiftyEmail.get_email('awesome-email', full_name: 'Jim Tom')
+
+mail(to: 'jimtom@example.com', subject: 'Welcome!') do |format|
+  format.html { email.html }
+  format.text { email.text }
+end
 ```
 
 ## Contributing
