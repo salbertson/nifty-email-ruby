@@ -39,6 +39,15 @@ NiftyEmail.token = '123abc'
 
 email = NiftyEmail.get_email('awesome-email', full_name: 'Jim Tom')
 
+mail(
+  to: 'jimtom@example.com',
+  subject: 'Welcome!',
+  body: email.html,
+  content_type: 'text/html'
+)
+
+# or with HTML and text parts
+
 mail(to: 'jimtom@example.com', subject: 'Welcome!') do |format|
   format.html { email.html }
   format.text { email.text }
