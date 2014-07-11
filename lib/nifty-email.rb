@@ -9,7 +9,7 @@ class NiftyEmail
     @token
   end
 
-  def self.get_email(slug_or_id, placeholders)
+  def self.get_email(slug_or_id, placeholders = {})
     connection = Faraday.new(url: 'http://nifty-email-production.herokuapp.com/api/emails')
     connection.authorization('Token', token: @token)
 
