@@ -1,6 +1,8 @@
 require 'json'
 
 class NiftyEmail
+  class NiftyEmailError < StandardError; end
+
   def self.token=(token)
     @token = token
   end
@@ -14,7 +16,12 @@ class NiftyEmail
     connection.authorization('Token', token: @token)
 
     response = connection.get("#{slug_or_id}.json", placeholders)
-    NiftyEmail::Email.new(JSON.parse(response.body))
+
+    if response.status == 200
+      NiftyEmail::Email.new(JSON.parse(response.body))
+    else
+      raise NiftyEmailError, response.body
+    end
   end
 
   class Email
