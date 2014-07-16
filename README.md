@@ -21,7 +21,7 @@ Or install it yourself as:
 ### General example
 
 ```
-NiftyEmail.token = '123abc'
+NiftyEmail.api_token = '4U2+OKuABdopirrzp/zDdA=='
 
 email = NiftyEmail.get_email('awesome-email', full_name: 'Jim Tom')
 puts email.html
@@ -33,7 +33,7 @@ puts email.text
 ```
 # initializer
 
-NiftyEmail.token = '123abc'
+NiftyEmail.api_token = '4U2+OKuABdopirrzp/zDdA=='
 
 # mailer
 
