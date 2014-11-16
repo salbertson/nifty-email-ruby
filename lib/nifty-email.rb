@@ -1,4 +1,5 @@
 require 'json'
+require 'faraday'
 
 class NiftyEmail
   class NiftyEmailError < StandardError; end
